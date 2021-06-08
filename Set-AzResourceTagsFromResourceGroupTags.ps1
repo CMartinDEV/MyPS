@@ -1,7 +1,7 @@
 
 <#PSScriptInfo
 
-.VERSION 1.0.4
+.VERSION 1.0.5
 
 .GUID 402e048d-d91b-46b7-b040-710fbe7e89e1
 
@@ -48,6 +48,9 @@
 .PARAMETER Confirm
  Set the -Confirm parameter on the Set-AzResource cmdlet used to re-tag each resource.
 
+.PARAMETER WhatIf
+ Set the -WhatIf parameter on the Set-AzResource cmdlet used to re-tag each resource.
+
 .EXAMPLE
  Set-AzResourceTagsFromResourceGroupTags.ps1 -SubscriptionId '789c070a-4eab-4b9b-a5f1-ba83b4682ba6' -Force -Confirm:$false
 
@@ -78,10 +81,10 @@ Param(
     [switch]$All,
 
     [switch]$Force,
-    [switch]$Confirm
+    [switch]$Confirm,
+    [switch]$WhatIf
 )
 Begin {
-
     $null = Connect-AzAccount -ErrorAction Stop
 }
 Process {
@@ -132,13 +135,8 @@ Process {
 
                 }
 
-                Set-AzResource -ResourceId $resource.Id -Tag $resourceTags -Confirm:$Confirm -Force:$Force -ErrorAction Continue
+                Set-AzResource -ResourceId $resource.Id -Tag $resourceTags -Confirm:$Confirm -Force:$Force -WhatIf:$WhatIf -ErrorAction Continue
             }
-
         }
-
     }
-}
-
-
-
+} 
