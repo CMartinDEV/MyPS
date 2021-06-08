@@ -1,7 +1,7 @@
 
 <#PSScriptInfo
 
-.VERSION 1.0.2
+.VERSION 1.0.3
 
 .GUID 402e048d-d91b-46b7-b040-710fbe7e89e1
 
@@ -11,11 +11,11 @@
 
 .COPYRIGHT
 
-.TAGS
+.TAGS Azure, Tagging, Tags, Az, Resource, Group
 
 .LICENSEURI
 
-.PROJECTURI
+.PROJECTURI https://github.com/CMartinDEV/MyPS/blob/main/Set-AzResourceTagsFromResourceGroupTags.ps1
 
 .ICONURI
 
@@ -26,7 +26,6 @@
 .EXTERNALSCRIPTDEPENDENCIES
 
 .RELEASENOTES
-
 
 .PRIVATEDATA
 
