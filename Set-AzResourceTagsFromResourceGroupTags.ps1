@@ -1,7 +1,7 @@
 
 <#PSScriptInfo
 
-.VERSION 1.0.1
+.VERSION 1.0.2
 
 .GUID 402e048d-d91b-46b7-b040-710fbe7e89e1
 
@@ -69,7 +69,8 @@ Param(
     [Parameter(
         Mandatory = $true,
         Position = 0,
-        ParameterSetName = 'BYID')]
+        ParameterSetName = 'BYID',
+        ValueFromPipeline = $true)]
     [Guid[]]$SubscriptionId,
 
     [Parameter(
