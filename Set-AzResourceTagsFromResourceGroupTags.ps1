@@ -1,7 +1,7 @@
 
 <#PSScriptInfo
 
-.VERSION 1.0.3
+.VERSION 1.0.4
 
 .GUID 402e048d-d91b-46b7-b040-710fbe7e89e1
 
@@ -83,15 +83,16 @@ Param(
 Begin {
 
     $null = Connect-AzAccount -ErrorAction Stop
+}
+Process {
 
     if ($All) {
         $subs = Get-AzSubscription -ErrorAction Stop
     }
-
-}
-Process {
-
-    $subs = $SubscriptionId | ForEach-Object -Process { Get-AzSubscription -SubscriptionId $_ -ErrorAction Continue }
+    else {
+        $subs = $SubscriptionId | ForEach-Object -Process { Get-AzSubscription -SubscriptionId $_ -ErrorAction Continue }
+    }
+    
 
     foreach ($sub in $subs) {
 
